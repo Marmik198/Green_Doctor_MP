@@ -7,8 +7,8 @@ from django.core.files.storage import FileSystemStorage
 def home(request):
     return render(request, 'deeplearning/index.html')
 
-def about(request):
-    return render(request, 'deeplearning/about.html')
+def engine(request):
+    return render(request, 'deeplearning/engine.html')
 
 def plant(request):
     return render(request, 'deeplearning/plant.html')

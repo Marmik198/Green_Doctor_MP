@@ -1,0 +1,107 @@
+{% extends "deeplearning/base2.html" %} {% load static %} {% block content %}
+<div class="gallery" id="gallery">
+  <div class="container">
+    <h3 class="gallery-head">
+      A Web based deep learning model for plant disease detection and
+      classification from leaves
+    </h3>
+    <h5 class="gallery-heads">
+      Welcome to Green Doctor for plant disease detection.
+    </h5>
+  </div>
+</div>
+
+<div class="contact" id="contact">
+  <div class="container">
+    <div class="contact-form">
+      <div class="col-md-6 form-left">
+        <div class="form-top">
+          <h3>Plant diseases detection</h3>
+          <p>
+            This is a deployment of a deep learning model (PyTorch) for
+            Classification of 14 crop species. The model leverages the
+            Microsoft’s ResNet50 architecture and applies the ImageNet weights,
+            extra training is done through transfer learning, hence it can
+            detect and classify crop leaves into 38 different classes (crop
+            species and status).
+          </p>
+        </div>
+
+        <div class="social-form">
+          <div class="social-media">
+            <ul>
+              <li>
+                <a
+                  href="{%url 'predict'%}"
+                  class="fa fa-plant"
+                  style="width: 350px; height: 40px; font-size: 20px"
+                >
+                  Predict Crop Disease
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 form-right">
+        <img
+          class="img-fluid img-responsive"
+          src="{% static 'deeplearning/images/Plant-diseases-detection.jpg' %}"
+          alt="image"
+        />
+      </div>
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+
+<div class="contact" id="contact">
+  <div class="container">
+    <div class="contact-form">
+      <div class="col-md-6 form-left">
+        <div class="form-top">
+          <h3>About PlantVillage Dataset</h3>
+          <p>
+            In order to ease plant disease diagnosis, the PlantVillage project
+            began collecting and later opensourced images of crops for both
+            healthy and diseased plant. The PlantVillage dataset contains images
+            of leaves corresponding to 14 crop species: Apple, Blueberry,
+            Cherry, Grape, Orange, Peach, Bell Pepper, Potato, Raspberry,
+            Soybean, Squash, Strawberry, and Tomato. The images are divided into
+            38 classes of crop disease pairs
+          </p>
+        </div>
+
+        <div class="social-form">
+          <div class="social-media">
+            <ul>
+              <li>
+                <a
+                  href="{% url 'PlantVillage' %}"
+                  class="fa fa-plant"
+                  style="width: 350px; height: 40px; font-size: 20px"
+                >
+                  Read More &rarr;</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 form-right">
+        <img
+          class="img-fluid img-responsive"
+          src="{% static 'deeplearning/images/PlantVillage-Dataset.jpg' %}"
+          alt="image"
+        />
+      </div>
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

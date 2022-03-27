@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 # Create your views here.
 urlpatterns = [
     path('', views.home, name='site-home'),
-    path('about-me/', views.about, name='about-me'),
+    path('engine/', views.engine, name='engine'),
     path('predict', views.predict, name='predict'),
     path('PlantVillage/', views.plant, name='PlantVillage'),
 

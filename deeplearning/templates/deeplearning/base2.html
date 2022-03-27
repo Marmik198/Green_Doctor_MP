@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} {% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -53,13 +53,6 @@
       href="{% static 'deeplearning/css/simplelightbox.min.css' %} "
     />
 
-    <!-- Theme CSS
-    <link
-      id="theme-style"
-      rel="stylesheet"
-      href="{% static 'deeplearning/css/theme.css' %}"
-    /> -->
-
     <!--Bootstap css-->
     <link
       rel="stylesheet"
@@ -73,14 +66,22 @@
       href="{% static 'deeplearning/css/responsive.css' %} "
     />
   </head>
-
   <body>
     <!--NavBar-->
 
-    <div class="main-section" id="home">
+    <div
+      class="main-section"
+      style="
+        background-color: #232323;
+        position: static;
+        margin-bottom: 2%;
+        padding: 1% 0;
+      "
+      id="home"
+    >
       <div class="container">
         <div class="banner-nav">
-          <nav class="navbar navbar-default">
+          <nav class="navbar navbar-default" style="background-color: #232323">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header navbar-left">
               <button
@@ -95,7 +96,7 @@
                 <span class="icon-bar"></span>
               </button>
               <h1>
-                <a class="navbar-brand" href="#home">
+                <a class="navbar-brand" href="{% url 'site-home'%}">
                   <p>GD</p>
                 </a>
               </h1>
@@ -109,10 +110,14 @@
               <nav class="menu">
                 <ul class="nav navbar-nav menu_list">
                   <li class="menu_item">
-                    <a href="#home" class="scroll menu_link">Home</a>
+                    <a href="{% url 'site-home'%}" class="scroll menu_link"
+                      >Home</a
+                    >
                   </li>
                   <li class="menu_item">
-                    <a href="#about" class="scroll menu_link">About</a>
+                    <a href="{% url 'site-home'%}" class="scroll menu_link"
+                      >About</a
+                    >
                   </li>
                   <li class="menu_item">
                     <a href="{% url 'engine'%}" class="scroll menu_link"
@@ -123,10 +128,14 @@
                     <a href="#" class="scroll menu_link">Products</a>
                   </li>
                   <li class="menu_item">
-                    <a href="#gallery" class="scroll menu_link">Gallery</a>
+                    <a href="{% url 'site-home'%}" class="scroll menu_link"
+                      >Gallery</a
+                    >
                   </li>
                   <li class="menu_item">
-                    <a href="#contact" class="scroll menu_link">Contact</a>
+                    <a href="{% url 'site-home'%}" class="scroll menu_link"
+                      >Contact</a
+                    >
                   </li>
                 </ul>
                 <div class="menu-social">
@@ -196,11 +205,7 @@
         </div>
       </div>
     </div>
-
-    <!--Move To Top Button-->
-
-    <a href="#" class="scrollUpButton"></a>
-
+    <!-- Javascript -->
     <!-- Default-JavaScript-File -->
     <script
       type="text/javascript"
@@ -210,80 +215,5 @@
       type="text/javascript"
       src="{% static 'deeplearning/js/bootstrap.js' %}"
     ></script>
-
-    <!-- banner js script (JiSlider) -->
-    <script src="{% static 'deeplearning/js/JiSlider.js' %}"></script>
-    <script>
-      $(window).load(function () {
-        $("#JiSlider")
-          .JiSlider({
-            color: "#fff",
-            start: 3,
-            reverse: true,
-          })
-          .addClass("ff");
-      });
-    </script>
-
-    <!-- numscroller js file -->
-    <script
-      type="text/javascript"
-      src="{% static 'deeplearning/js/numscroller-1.0.js' %}"
-    ></script>
-
-    <!--Smooth Scroll-->
-    <script
-      src="{% static 'deeplearning/js/smooth-scroll.polyfills.min.js' %}"
-      type="text/javascript"
-    ></script>
-
-    <!--    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>-->
-
-    <script type="text/javascript">
-      var scroll = new SmoothScroll("a.scroll", {
-        speed: 1500,
-        easing: "easeInOutQuart",
-      });
-    </script>
-
-    <!--Move To Top Button-->
-
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $(window).scroll(function () {
-          if ($(this).scrollTop() > 100) {
-            $(".scrollUpButton").fadeIn();
-          } else {
-            $(".scrollUpButton").fadeOut();
-          }
-        });
-
-        $(".scrollUpButton").click(function () {
-          $("html, body").animate(
-            {
-              scrollTop: 0,
-            },
-            2000
-          );
-          return false;
-        });
-      });
-    </script>
-
-    <!-- video js file -->
-    <script src="{% static 'deeplearning/js/jquery.vide.min.js' %}"></script>
-
-    <!-- gallery plugin (lightbox) -->
-    <script
-      type="text/javascript"
-      src="{% static 'deeplearning/js/simple-lightbox.min.js' %}"
-    ></script>
-    <script>
-      $(function () {
-        var gallery = $(".gallery-grid a").simpleLightbox({
-          navText: ["&lsaquo;", "&rsaquo;"],
-        });
-      });
-    </script>
   </body>
 </html>
