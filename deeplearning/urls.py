@@ -9,7 +9,6 @@ urlpatterns = [
     path('engine/', views.engine, name='engine'),
     path('predict', views.predict, name='predict'),
     path('PlantVillage/', views.plant, name='PlantVillage'),
-
 ]
 
 if settings.DEBUG:

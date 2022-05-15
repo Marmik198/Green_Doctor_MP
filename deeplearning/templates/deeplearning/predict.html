@@ -4,38 +4,40 @@
 	    <article class="blog-post px-3 py-5 p-md-5">
 		    <div class="container">
 			    <header class="blog-post-header">
-				    <h2 class="title mb-2">Plant diseases detection</h2>
+				    <h2 class="custom-pad title mb-2 text-center" style="font-size:46px;">Plant diseases detection</h2>
 			    </header>
           <section id="one" class="wrapper style1">
             <div class="item mb-5">
-              <div class="media">
+              <div class="media mb-5">
                 {% if predictions %}
-									<P><img  width="350" src="{{ url }}"></P>
-                  <div class="media-body">
+									<p class="text-center"><img  width="500px" height="500px" src="{{ url }}"></p>
+                  <div class="py-5">
                     <div class="intro">
-                      <h2>Crop species & Health status Predictions: </h2>
-											{% for prediction in predictions %}
-                      		<p>{{ prediction.pred }}</p>
-											{% endfor %}
-                      <a class="btn btn-primary" href="{% url 'predict'%}">Predict Again</a>
+                        <h2 style="font-size:26px; margin-top:20px; margin-bottom:4px" >Prections Made: </h2>
+                        <ol>
+                        {% for prediction in predictions %}
+                            <li style="font-size:20px; padding-bottom:4px">{{ prediction.pred }}</li>
+                        {% endfor %}
+                        <ol>
+                      <p class="text-center"><a class="btn btn-primary custom-btn" href="{% url 'predict'%}">Predict Again</a></p>
                     </div>
                   </div>
 
                 {% else %}
-
-                  <P><img id="output" width="350" height="350" ></P>
+                  <p class="text-center"><img id="output" height="500px" width="500px"></p>
                   <div class="media-body">
-                    <h2>{{ title }}</h2>
-                    <strong>ResNet Trained on PlantVillage Dataset</strong>
+                    <h2 class="custom-pad">{{ title }}</h2>
+                    <strong class="custom-pad text-center" style="font-size:26px;">EfficientNetB7 Trained on FGVC8 Dataset</strong>
                     <div class="intro">
-                        <strong>Note: </strong>Upload image to the django web service serving the classification model and then predict
+                        <strong class="custom-pad text-center" style="font-size:16px;">Note: </strong><i>Upload image to the django web service serving the classification model and then predict</i>
                         <form method="post" enctype=multipart/form-data>
 													{% csrf_token %}
-                          <p>
-                            <input type="file" accept="image/*" name="myfile" id="file" onchange="loadFile(event)" required>
-                          <input type=submit value="Predict" class="special"></p>
+                          <p class="text-center" >
+                            <input class="custom-pad text-center" type="file" accept="image/*" name="myfile" id="file" onchange="loadFile(event)" required>
+                            <input class="custom-pad btn btn-primary custom-btn text-center"  type=submit value="Predict" class="special"></p>
 													{{ form }}
                         </form>
+                        <br>
                     </div>
                   </div>
                 {% endif %}
