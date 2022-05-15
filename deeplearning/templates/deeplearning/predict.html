@@ -16,7 +16,9 @@
                         <h2 style="font-size:26px; margin-top:20px; margin-bottom:4px" >Prections Made: </h2>
                         <ol>
                         {% for prediction in predictions %}
-                            <li style="font-size:20px; padding-bottom:4px">{{ prediction.pred }}</li>
+                          <h1>{{prediction.0}}
+                          <p> </p>
+                          <h2></h2>
                         {% endfor %}
                         <ol>
                       <p class="text-center"><a class="btn btn-primary custom-btn" href="{% url 'predict'%}">Predict Again</a></p>
