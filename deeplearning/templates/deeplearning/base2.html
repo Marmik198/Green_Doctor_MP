@@ -1,4 +1,4 @@
-{% load static %} {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -115,7 +115,9 @@
                     >
                   </li>
                   <li class="menu_item">
-                    <a href="{% url 'site-home'%}" class="scroll menu_link"
+                    <a
+                      href="{% url 'site-home'%}#about"
+                      class="scroll menu_link"
                       >About</a
                     >
                   </li>
@@ -125,18 +127,49 @@
                     >
                   </li>
                   <li class="menu_item">
-                    <a href="#" class="scroll menu_link">Products</a>
+                    <a href="{% url 'site-home'%}" class="scroll menu_link"
+                      >Products</a
+                    >
                   </li>
                   <li class="menu_item">
-                    <a href="{% url 'site-home'%}" class="scroll menu_link"
+                    <a
+                      href="{% url 'site-home'%}#gallery"
+                      class="scroll menu_link"
                       >Gallery</a
                     >
                   </li>
                   <li class="menu_item">
-                    <a href="{% url 'site-home'%}" class="scroll menu_link"
+                    <a
+                      href="{% url 'site-home'%}#contact"
+                      class="scroll menu_link"
                       >Contact</a
                     >
                   </li>
+
+                  {% if user.is_authenticated %}
+
+                  <li class="menu_item">
+                    <a class="scroll menu_link" href="{% url 'logout' %}"
+                      >Logout
+                    </a>
+                  </li>
+                  <!-- <li class="menu_item">
+                    <a class="scroll menu_link" role="link" aria-disabled="true"
+                      >Hello, {{ user.username }}
+                    </a>
+                  </li> -->
+                  {% else %}
+                  <li class="menu_item">
+                    <a class="scroll menu_link" href="{% url 'login' %}"
+                      >Sign Up
+                    </a>
+                  </li>
+                  <!-- <li class="menu_item">
+                    <a class="scroll menu_link" href="{% url 'register' %}"
+                      >Register
+                    </a>
+                  </li> -->
+                  {% endif %}
                 </ul>
                 <div class="menu-social">
                   <div class="social_icons">

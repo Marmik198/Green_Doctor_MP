@@ -128,6 +128,31 @@
                   <li class="menu_item">
                     <a href="#contact" class="scroll menu_link">Contact</a>
                   </li>
+
+                  {% if user.is_authenticated %}
+
+                  <li class="menu_item">
+                    <a class="scroll menu_link" href="{% url 'logout' %}"
+                      >Logout
+                    </a>
+                  </li>
+                  <!-- <li class="menu_item">
+                    <a class="scroll menu_link" role="link" aria-disabled="true"
+                      >Hello, {{ user.username }}
+                    </a>
+                  </li> -->
+                  {% else %}
+                  <li class="menu_item">
+                    <a class="scroll menu_link" href="{% url 'login' %}"
+                      >Sign Up
+                    </a>
+                  </li>
+                  <!-- <li class="menu_item">
+                    <a class="scroll menu_link" href="{% url 'register' %}"
+                      >Register
+                    </a>
+                  </li> -->
+                  {% endif %}
                 </ul>
                 <div class="menu-social">
                   <div class="social_icons">

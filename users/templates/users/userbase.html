@@ -1,51 +1,178 @@
 {% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% block headtag %}
-    {% endblock headtag %}
-    <link rel = "icon" href ="https://upload.wikimedia.org/wikipedia/en/1/13/Mumbai_Police_logo.png" type = "image/x-icon">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
-<body>
-    <nav class="navbar navbar-expand-sm" style="background-color:rgb(94,106,176)">
+  <head>
+    <!--basic-->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <div class="logo">
-            <a href="{% url 'predict' %}"><img src="https://upload.wikimedia.org/wikipedia/en/1/13/Mumbai_Police_logo.png" alt="Mumbai Police Logo" style="height: 80px;width: 80px"></a>
-            <span style="font-size: 22px;font-family:'Arial Black'">Green Doctor</span>
+    <!--mobile meters-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+
+    <!--site metas-->
+    <meta
+      name="description"
+      content="This is a Plant Disease Prediction Websitr"
+    />
+    <meta name="author" content="Marmik Shah" />
+
+    {% block headtag %} {% endblock headtag %}
+
+    <!--favicon-->
+    <link rel="icon" href="{% static 'deeplearning/images/favicon.webp' %}" />
+
+    <link
+      rel="stylesheet"
+      href="{% static 'deeplearning/css/font-awesome.min.css' %}"
+    />
+
+    <!--Bootstap css-->
+    <link rel="stylesheet" href="{% static 'deeplearning/css/bootstrap.css' %} "
+    / >
+
+    <!--Style css-->
+    <link rel="stylesheet" href="{% static 'deeplearning/css/style.css' %} " />
+    <link
+      rel="stylesheet"
+      href="{% static 'deeplearning/css/responsive.css' %} "
+    />
+  </head>
+  <body>
+    <!--NavBar-->
+
+    <div
+      class="main-section"
+      style="
+        background-color: #232323;
+        position: static;
+        margin-bottom: 2%;
+        padding: 1% 0;
+      "
+      id="home"
+    >
+      <div class="container">
+        <div class="banner-nav">
+          <nav class="navbar navbar-default" style="background-color: #232323">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header navbar-left">
+              <button
+                type="button"
+                class="navbar-toggle collapsed"
+                data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1"
+              >
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <h1>
+                <a class="navbar-brand" href="{% url 'site-home'%}">
+                  <p>GD</p>
+                </a>
+              </h1>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div
+              class="collapse navbar-collapse navbar-right"
+              id="bs-example-navbar-collapse-1"
+            >
+              <nav class="menu">
+                <ul class="nav navbar-nav menu_list">
+                  <li class="menu_item">
+                    <a href="{% url 'site-home'%}" class="scroll menu_link"
+                      >Home</a
+                    >
+                  </li>
+                  <li class="menu_item">
+                    <a href="{% url 'site-home'%}" class="scroll menu_link"
+                      >About</a
+                    >
+                  </li>
+                  <li class="menu_item">
+                    <a href="{% url 'engine'%}" class="scroll menu_link"
+                      >AI Engine</a
+                    >
+                  </li>
+                  <li class="menu_item">
+                    <a href="#" class="scroll menu_link">Products</a>
+                  </li>
+                  <li class="menu_item">
+                    <a href="{% url 'site-home'%}" class="scroll menu_link"
+                      >Gallery</a
+                    >
+                  </li>
+                  <li class="menu_item">
+                    <a href="{% url 'site-home'%}" class="scroll menu_link"
+                      >Contact</a
+                    >
+                  </li>
+
+                  {% if user.is_authenticated %}
+
+                  <li class="menu_item">
+                    <a class="scroll menu_link" href="{% url 'logout' %}"
+                      >Logout
+                    </a>
+                  </li>
+                  <!-- <li class="menu_item">
+                    <a class="scroll menu_link" role="link" aria-disabled="true"
+                      >Hello, {{ user.username }}
+                    </a>
+                  </li> -->
+                  {% else %}
+                  <li class="menu_item">
+                    <a class="scroll menu_link" href="{% url 'login' %}"
+                      >Sign Up
+                    </a>
+                  </li>
+                  <!-- <li class="menu_item">
+                    <a class="scroll menu_link" href="{% url 'register' %}"
+                      >Register
+                    </a>
+                  </li> -->
+                  {% endif %}
+                </ul>
+                <div class="menu-social">
+                  <div class="social_icons">
+                    <a
+                      href="https://www.facebook.com"
+                      target="_blank"
+                      class="social_button"
+                      ><i class="fa fa-facebook"></i
+                    ></a>
+                    <a
+                      href="https://www.twitter.com"
+                      target="_blank"
+                      class="social_button"
+                      ><i class="fa fa-twitter"></i
+                    ></a>
+                    <a
+                      href="https://myaccount.google.com"
+                      target="_blank"
+                      class="social_button"
+                      ><i class="fa fa-google-plus"></i
+                    ></a>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </nav>
         </div>
-
-        <ul class="hide" style="color:rgb(94,106,176)">
-            <li><a href="{% url 'predict' %}">Home</a></li>
-            <li><a href="{% url 'predict' %}#Services">Services</a></li>
-            <li><a href="{% url 'predict' %}#About">About Us</a></li>
-            <li><a href="{% url 'predict' %}#Contact">Contact Us</a></li>
-        </ul>
-
-
-        <div class="nav-btns-div">
-            {% if user.is_authenticated %}
-                <p class="welcome-navbar">Hello, {{ user.username }}</p>
-                <a class="btn btn-nav" href="{% url 'logout' %}">Logout</a>
-            {% else %}
-                <a class="btn btn-nav" href="{% url 'register' %}">Register</a>
-                <a class="btn btn-nav" href="{% url 'login' %}">Login</a>
-            {% endif %}
-
-        </div>
-
-    </nav>
-
-    {% block content %}
-    {% endblock content %}
-
-</body>
+      </div>
+    </div>
+    {% block content %} {% endblock %}
+    <!-- Javascript -->
+    <!-- Default-JavaScript-File -->
+    <script
+      type="text/javascript"
+      src="{% static 'deeplearning/js/jquery-2.1.4.min.js' %}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{% static 'deeplearning/js/bootstrap.js' %}"
+    ></script>
+  </body>
 </html>

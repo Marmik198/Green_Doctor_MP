@@ -1,13 +1,15 @@
-{% extends "users/userbase.html" %}
-{% block headtag %}
-    <head>
-        <title>Verify Email</title>
-    </head>
-{% endblock %}
-{% block content %}
-    <div class="=content-section p-50 text-center">
-        <h4>An Authentication Email has been sent !</h4>
-        <h6>Please click on the link in the email to verify your account.</h6>
-    </div>
+{% extends "./userbase.html" %} {% block headtag %}
+<head>
+  <title>Verify Email</title>
+</head>
+{% endblock %} {% block content %}
+<div class="text-center" style="margin: 60px">
+  <h4 style="font-size: 30px; margin-bottom: 15px">
+    An Authentication Email has been sent !
+  </h4>
+  <h6 style="font-size: 17px">
+    Please click on the link in the email to verify your account.
+  </h6>
+</div>
 
 {% endblock content %}
