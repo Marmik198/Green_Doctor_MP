@@ -56,7 +56,14 @@ def classify_image(image_bytes):
     _, indices = torch.sort(outputs, descending=True)
     confidence = torch.nn.functional.softmax(outputs, dim=1)[0]
 
+    
+
     # Return the top 3 pedictions ('class label, probability')
     result = [ (labels[str(idx.item())][0], labels[str(idx.item())][1], confidence[idx].item()) for idx in indices[0][:5] ]
+    print("*" * 100)
+    print(result[0][0])
+    print("*" * 100)
+    print(indices[0][0].item())
+    # print(str(indices[0].item()))
 
-    return result
+    return indices[0][0].item()

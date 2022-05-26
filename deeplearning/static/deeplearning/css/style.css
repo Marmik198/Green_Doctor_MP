@@ -1115,7 +1115,41 @@ h5.gallery-heads {
 }
 
 
+.prediction-card {
+    display: inline-block;
+    padding: 3em;
+    margin: 2em;
+    background: #c7d2fe66;
+    border-radius: 10px;
+    z-index: 1;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border: 2px solid transparent;
+    background-clip: border-box;
+    cursor: pointer;
+    /* height: 350px; */
+    /* width: 250px; */
+    max-height: 350px;
+    /* max-width: 300px; */
+    text-align: center;
+    text-decoration:none;
+    color:black;
+}
 
+.prediction-card-img{
+    width: 200px;
+    height: 200px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    margin: 8px;
+}
+
+.prediction-card-header {
+    line-height: 1.5;
+    letter-spacing: 1.5;
+    font-family: "Gilroy";
+    margin: 20px;
+}
 /*Footer*/
 
 
