@@ -3,8 +3,8 @@ from .dl_model.model import classify_image
 from django.core.files.storage import FileSystemStorage
 import pandas as pd
 
-disease_info = pd.read_csv('deeplearning/disease_info.csv' , encoding='cp1252')
-supplement_info = pd.read_csv('deeplearning/supplement_info.csv',encoding='cp1252')
+disease_info = pd.read_csv('deeplearning\disease_info.csv' , encoding='cp1252')
+supplement_info = pd.read_csv('deeplearning\supplement_info.csv',encoding='cp1252')
 
 # Create your views here.
 def home(request):
@@ -33,6 +33,10 @@ def predict(request):
         # top3 = [result[2][0], result[2][1], result[2][2]]
         
         # top1 = display_supplement_cards(result[0][0], result[0][1], result[0][2])
+
+        if(result > 4):
+             result = result + 1
+
         top1 = display_supplement_cards(result)
         predictions = top1
         context = { 'predictions':predictions }
@@ -46,14 +50,15 @@ def predict(request):
 
         return render(request, 'deeplearning/predict.html', context)
 
-# def display_supplement_cards(species, disease, probability):
 def display_supplement_cards(pred):
+    print(pred)
     title = disease_info['disease_name'][pred]
     description =disease_info['description'][pred]
     prevent = disease_info['Possible Steps'][pred]
     image_url = disease_info['image_url'][pred]
     supplement_name = supplement_info['supplement_name'][pred]
     supplement_image_url = supplement_info['supplement_image'][pred]
+    print(supplement_image_url)
     supplement_buy_link = supplement_info['buy_link'][pred]
 
 
