@@ -3,8 +3,8 @@ from .dl_model.model import classify_image
 from django.core.files.storage import FileSystemStorage
 import pandas as pd
 
-disease_info = pd.read_csv('deeplearning\disease_info.csv' , encoding='cp1252')
-supplement_info = pd.read_csv('deeplearning\supplement_info.csv',encoding='cp1252')
+disease_info = pd.read_csv('deeplearning/disease_info.csv' , encoding='cp1252')
+supplement_info = pd.read_csv('deeplearning/supplement_info.csv',encoding='cp1252')
 
 # Create your views here.
 def home(request):
