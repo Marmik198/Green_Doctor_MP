@@ -51,14 +51,12 @@ def predict(request):
         return render(request, 'deeplearning/predict.html', context)
 
 def display_supplement_cards(pred):
-    print(pred)
     title = disease_info['disease_name'][pred]
     description =disease_info['description'][pred]
     prevent = disease_info['Possible Steps'][pred]
     image_url = disease_info['image_url'][pred]
     supplement_name = supplement_info['supplement_name'][pred]
     supplement_image_url = supplement_info['supplement_image'][pred]
-    print(supplement_image_url)
     supplement_buy_link = supplement_info['buy_link'][pred]
 
 
