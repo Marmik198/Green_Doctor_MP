@@ -1,10 +1,10 @@
-{% extends "deeplearning/base2.html" %}
+{% extends "deeplearning/base3.html" %}
 {% load static %}
 	    {% block content %}
 	    <article class="blog-post px-3 py-5 p-md-5">
 		    <div class="container">
 			    <header class="blog-post-header">
-				    <h2 class="custom-pad title mb-2 text-center" style="font-size:46px;">Plant diseases detection</h2>
+				    <h2 class="custom-pad title mb-2 text-center" style="font-size:46px;margin-top: 2rem; margin-bottom: 5rem;">Plant diseases detection</h2>
 			    </header>
           <section id="one" class="wrapper style1">
             <div class="item mb-5">
@@ -14,7 +14,7 @@
                   <div class="container">
                     <div class="row mb-5 text-center text-white">
                       <div class="col-lg-10 mx-auto">
-                        <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color: rgb(4, 54, 4);"><b>{{predictions.title}}🍂 </b></h1>
+                        <h1 class="display-4" style="padding-top: 2%;color: #000;"><b>{{predictions.title}}🍂 </b></h1>
                       </div>
                     </div>
                     <center>
@@ -85,22 +85,22 @@
                 </div>
 
                 {% else %}
-                  <p class="text-center"><img id="output" height="500px" width="500px"></p>
-                  <div class="media-body">
-                    <h2 class="custom-pad">{{ title }}</h2>
-                    <strong class="custom-pad text-center" style="font-size:26px;">EfficientNetB7 Trained on FGVC8 Dataset</strong>
-                    <div class="intro">
-                        <strong class="custom-pad text-center" style="font-size:16px;">Note: </strong><i>Upload image to the django web service serving the classification model and then predict</i>
-                        <form method="post" enctype=multipart/form-data>
-													{% csrf_token %}
-                          <p class="text-center" >
-                            <input class="custom-pad text-center" type="file" accept="image/*" name="myfile" id="file" onchange="loadFile(event)" required>
-                            <input class="custom-pad btn btn-primary custom-btn text-center"  type=submit value="Predict" class="special"></p>
-													{{ form }}
-                        </form>
-                        <br>
-                    </div>
+                <p class="text-center"><img id="output" style="width: 50%; height: 200px;"></p>
+                <div class="media-body" style="text-align: center;">
+                  <h2 class="custom-pad">{{ title }}</h2>
+                  <!-- <strong class="custom-pad text-center" style="font-size:26px;">EfficientNetB7 Trained on FGVC8 Dataset</strong> -->
+                  <div class="intro" style="margin-top: 4rem;">
+                      <strong class="custom-pad text-center" style="font-size:20px;">Note: </strong><i style="font-size: 18px;">Upload image to the django web service serving the classification model and then predict</i>
+                      <form method="post" style="margin: 3rem auto 0;" enctype=multipart/form-data>
+                        {% csrf_token %}
+                        <p class="text-center" >
+                          <input class="custom-pad text-center" style="margin: 0 auto;" type="file" accept="image/*" name="myfile" id="file" onchange="loadFile(event)" required>
+                          <input class="signUpButton" style="margin-top: 2rem;" type=submit value="Predict"></p>
+                        {{ form }}
+                      </form>
+                      <br>
                   </div>
+                </div>
                 {% endif %}
               </div><!--//media-->
               <script>
