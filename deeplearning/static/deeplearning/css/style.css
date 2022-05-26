@@ -1133,6 +1133,32 @@ h5.gallery-heads {
     color:black;
 }
 
+.bulletin-div {
+    display:flex;
+    padding: 20px;
+    text-align:center;
+    margin: auto;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content: center;
+
+}
+
+.bulletin-inner-div {
+    border: 1px solid #000;
+    margin: 10px 25px;
+}
+
+.bulletin-inner-h3 {
+    padding:6px;
+    color: #1DA1F2;
+}
+
+.bulletin-div > iframe {
+    margin: 10px;
+}
+
+
 .prediction-card-img{
     width: 200px;
     height: 200px;
