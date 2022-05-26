@@ -2,7 +2,7 @@
 {% load static %}
 	    {% block content %}
 	    <article class="blog-post px-3 py-5 p-md-5">
-		    <div class="container">
+		    <div class="container" style="margin-bottom: 3rem;">
 			    <header class="blog-post-header">
 				    <h2 class="custom-pad title mb-2 text-center" style="font-size:46px;margin-top: 2rem; margin-bottom: 5rem;">Plant diseases detection</h2>
 			    </header>
@@ -12,70 +12,66 @@
                 {% if predictions %}
                 <div>
                   <div class="container">
-                    <div class="row mb-5 text-center text-white">
-                      <div class="col-lg-10 mx-auto">
-                        <h1 class="display-4" style="padding-top: 2%;color: #000;"><b>{{predictions.title}}🍂 </b></h1>
-                      </div>
-                    </div>
                     <center>
                     <div class="col">
                           <div class="p-3 bg-black shadow rounded-lg" style="width: 30%;">
                             <img src="{{url}}" width="350" height="350">                
                           </div>
-                      </div>
+                          <h1 style="margin: 0 auto; padding-top: 3rem; padding-bottom: 3rem; color: #000; font-weight: 500;">{{predictions.title}}
+                    </div>
+                    </h1>
                       </center>
                       <br>
                       <div class="row">
                         <div class="col mx-auto">
-                          <div class="p-5 bg-black shadow rounded-lg" style="height: 95%;">
+                          <div class="p-5 bg-black shadow rounded-lg card" style="height: 95%; font-size: 15px;">
                 
-                            <h5><b>
+                            <h5 style="text-align: center; margin: 0 auto; font-size: 3.5rem; margin: 0 0 25px; color: #000;">
                                 {% if pred == 3 or pred == 5 or pred == 7 or pred == 11 or pred == 15 or pred == 18 or pred == 20 or pred == 23 or pred == 24 or pred == 25 or pred == 28 or pred == 38 %}
                                 Tips to Grow Healthy Plants :
                                 {% else %}
-                                Brief Descritpion :
+                                Brief Descritpion
                                 {% endif %}
-                              </b></h5>
-                            <p>{{predictions.description}}
+                              </h5>
+                            <p style="width: 95%; font-size: 19px; text-align: justify;">{{predictions.description}}
                             </p>
                           </div>
                         </div>
                       </div>
-                      <div class="row">
+                      <div class="row" style="margin-top: 5rem;">
                         <div class="col mx-auto">
-                          <div class="p-5 bg-white shadow rounded-lg" style="height:95%">
-                            <h5><b>
+                          <div class="p-5 bg-white shadow rounded-lg" style="height:95%; font-size: 15px;">
+                            <h5 style="text-align: center; margin: 0 auto; font-size: 3.5rem; margin: 0 0 25px; color: #000;">
                               {% if pred == 3 or pred == 5 or pred == 7 or pred == 11 or pred == 15 or pred == 18 or pred == 20 or pred == 23 or pred == 24 or pred == 25 or pred == 28 or pred == 38 %}
                               Benefits :
                                 {% else %}
-                                Prevent This Plant Disease By follow below steps :
+                                Prevent This Plant Disease By follow below steps
                                 {% endif %}
-                              </b></h5>
-                            <p>
+                            </h5>
+                            <p style="width: 95%; font-size: 19px; text-align: justify;">
                               {{predictions.prevent}}
                             </p>
                           </div>
                         </div>
                 
                         {% if pred != 4 %}
-                        <div class="col mx-auto">
+                        <div class="col mx-auto" style="margin-top: 5rem;">
                         <div class= "p-5 bg-white shadow rounded-lg" style="height: 95%;">
                           <center>
-                            <h5><b>
+                            <h5 style="text-align: center; margin: 0 auto; font-size: 3.5rem; margin: 0 0 25px; color: #000;">
                               {% if pred == 3 or pred == 5 or pred == 7 or pred == 11 or pred == 15 or pred == 18 or pred == 20 or pred == 23 or pred == 24 or pred == 25 or pred == 28 or pred == 38 %}
-                                Fertilizer :
+                                Fertilizer
                                 {% else %}
-                                Supplements :
+                                Supplements
                                 {% endif %}
-                              </b></h5>
+                            </h5>
                             <br>
-                            <img src={{ predictions.supplement_image_url }} width="300" height="350">
+                            <img style="width:300px; height:350px" src={{ predictions.supplement_image_url }}>
                             <br>
                             <br>
-                            <h6>{{ predictions.supplement_name }}</h6>
+                            <h5>{{ predictions.supplement_name }}</h5>
                 
-                            <a target="_blank" href={{predictions.supplement_buy_link}}><button type="button" class="btn btn-success"
-                                style="background-color: #05380b;">Buy Product</button></a>
+                            <a target="_blank" href={{predictions.supplement_buy_link}}><button type="button" class="signUpButton">Buy Product</button></a>
                           </center>
                         </div>
                       </div>
@@ -85,7 +81,7 @@
                 </div>
 
                 {% else %}
-                <p class="text-center"><img id="output" style="width: 50%; height: 200px;"></p>
+                <p class="text-center"><img id="output" style="width:350px; height:350px"></p>
                 <div class="media-body" style="text-align: center;">
                   <h2 class="custom-pad">{{ title }}</h2>
                   <!-- <strong class="custom-pad text-center" style="font-size:26px;">EfficientNetB7 Trained on FGVC8 Dataset</strong> -->
